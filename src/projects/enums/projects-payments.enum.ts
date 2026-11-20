@@ -1,0 +1,5 @@
+export enum PaymentModality {
+  SINGLE_PAYMENT = 'SINGLE_PAYMENT',
+  DOWN_PAYMENT = 'DOWN_PAYMENT',
+  INSTALLMENTS = 'INSTALLMENTS',
+}

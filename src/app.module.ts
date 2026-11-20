@@ -7,6 +7,7 @@ import { ProjectsModule } from './projects/projects.module';
 import { InvoicesModule } from './invoices/invoices.module';
 import { MaterialsModule } from './materials/materials.module';
 import { DebtsModule } from './debts/debts.module';
+import { ClientsModule } from './clients/clients.module';
 
 @Module({
   imports: [
@@ -24,7 +25,8 @@ import { DebtsModule } from './debts/debts.module';
     ProjectsModule,
     InvoicesModule,
     MaterialsModule,
-    DebtsModule
+    DebtsModule,
+    ClientsModule
   ],
   controllers: [AppController],
   providers: [AppService],
