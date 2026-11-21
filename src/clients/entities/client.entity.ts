@@ -1,4 +1,4 @@
-import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Project } from '../../projects/entities/project.entity';
 
 
@@ -24,7 +24,10 @@ export class Client {
     phone: number;
 
     @CreateDateColumn({ type: 'timestamptz' }) 
-    created_at: Date;
+    created_at: Date; 
+
+    @UpdateDateColumn({ type: 'timestamptz' })
+    updated_at: Date;
     
     @OneToMany(
         () => Project,

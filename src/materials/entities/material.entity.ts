@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Project } from "../../projects/entities/project.entity";
 
 
 @Entity('Material')
@@ -7,37 +8,41 @@ export class Material {
     @PrimaryGeneratedColumn('uuid')
     id: string;
     
-    @Column('int',
-        {unique: true}
-    )
-    sheet: number;
-    
     @Column('text')
-    tittle: string
-    
-    @Column('date')
-    date: Date
-    
+    receipt_number: string;
+
     @Column('text')
-    assignee: string;
-    
-    @Column('int',
-        {unique: true}
-    )
-    numItem: number;
+    supplier: string;
     
     @Column('text')
     description: string;
-    
-    @Column('text')   // UNIDAD SE NECESITA PREGUNTAR SOBRE PARA QUE SIRVE , POSIBLE ENUM
-    unity: string;  
-    
+
+    @Column('date')
+    purchase_date: Date;
+
     @Column('int')
-    amount: number;
-    
+    net_amount: number;
+
     @Column('int')
-    unitPrice: number;
-    
+    iva_amount: number;
+
     @Column('int')
-    total: number;
+    total_amount: number;
+
+    @Column('text')
+    receipt_path: string
+
+    @CreateDateColumn({ type: 'timestamptz' }) 
+    created_at: Date;
+    
+    @UpdateDateColumn({ type: 'timestamptz' })
+    updated_at: Date;
+
+    @ManyToOne(
+        () => Project,
+        (project) => project.materials,
+    )
+    @JoinColumn({ name: 'project_id' })
+    project: Project;
+
 }

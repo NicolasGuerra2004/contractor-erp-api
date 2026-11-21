@@ -3,6 +3,7 @@ import { ProjectDetails } from "./projects_details.entity";
 import { Client } from "../../clients/entities/client.entity";
 import { ProjectStatus } from "../enums/projects-status.enum";
 import { PaymentModality } from "../enums/projects-payments.enum";
+import { Material } from "../../materials/entities/material.entity";
 
 @Entity('projects')
 export class Project {
@@ -74,4 +75,10 @@ export class Project {
         { cascade: true, eager: true }
     )
     projectDetails?: ProjectDetails[];
+
+    @OneToMany(
+        () => Material,
+        (material) => material.project,
+    )
+    materials: Material[];
 }

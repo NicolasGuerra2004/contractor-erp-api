@@ -1,5 +1,6 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToMany, ManyToOne, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import { Project } from "./project.entity";
+import { UnitType } from "../enums/projects-unity.enum";
 
 
 @Entity('ProjectDetails')
@@ -15,9 +16,6 @@ export class ProjectDetails {
     description: string;
 
     @Column('int')
-    unit: number;
-
-    @Column('int')
     quantity: number;
 
     @Column('int')
@@ -25,6 +23,14 @@ export class ProjectDetails {
 
     @Column('int')
     total: number;
+
+    @Column({
+        type: 'enum',
+        enum: UnitType,
+        default: UnitType.GL,
+    })
+    unit: UnitType;  
+    
 
     @CreateDateColumn({ type: 'timestamptz' }) 
     created_at: Date;
