@@ -1,5 +1,5 @@
 import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
-import { ProjectDetails } from "./projects_details.entity";
+import { ProjectDetails } from "./project_details.entity";
 import { Client } from "../../clients/entities/client.entity";
 import { ProjectStatus } from "../enums/projects-status.enum";
 import { PaymentModality } from "../enums/projects-payments.enum";
