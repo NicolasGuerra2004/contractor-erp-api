@@ -34,4 +34,7 @@ export class Client {
         (project) => project.client
     )
     projects: Project[];
+
+
+    // before update todo realizar comprobracion de rut, numero
 }
