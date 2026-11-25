@@ -4,6 +4,7 @@ import { Client } from "../../clients/entities/client.entity";
 import { ProjectStatus } from "../enums/projects-status.enum";
 import { PaymentModality } from "../enums/projects-payments.enum";
 import { Material } from "../../materials/entities/material.entity";
+import { Type } from "class-transformer";
 
 @Entity('projects')
 export class Project {
@@ -23,6 +24,7 @@ export class Project {
     @Column('varchar')
     assignee: string;
     
+    @Type(() => Date)
     @Column('date')
     date: Date;
     

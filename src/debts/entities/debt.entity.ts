@@ -32,7 +32,7 @@ export class Debt {
     receipt_path: string;
 
     @Column('text')
-    Description: string;
+    description: string;
 
     @CreateDateColumn({ type: 'timestamptz' }) 
     created_at: Date;

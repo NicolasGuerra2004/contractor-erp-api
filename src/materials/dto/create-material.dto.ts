@@ -1,3 +1,4 @@
+import { Type } from "class-transformer";
 import { IsDate, IsNumber, IsPositive, IsString, MaxLength, MinLength } from "class-validator";
 
 export class CreateMaterialDto {
@@ -14,6 +15,7 @@ export class CreateMaterialDto {
     @IsString()
     description: string;
 
+    @Type(() => Date)
     @IsDate()
     purchase_date: Date;
 

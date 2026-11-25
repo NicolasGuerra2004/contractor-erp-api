@@ -1,5 +1,6 @@
 import { IsDate, IsEnum, IsNumber, IsPositive } from "class-validator";
 import { invoice_status } from "../enums/invoices-status.enum";
+import { Type } from "class-transformer";
 
 export class CreateInvoiceDto {
 
@@ -10,6 +11,7 @@ export class CreateInvoiceDto {
     @IsPositive()
     installment_number: number;
 
+    @Type(() => Date)
     @IsDate()
     issue_date: Date;
 
