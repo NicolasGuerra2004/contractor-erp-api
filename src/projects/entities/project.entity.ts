@@ -17,11 +17,11 @@ export class Project {
     @Column('varchar')
     title: string;
 
-    @Column('varchar', { nullable: true })
-    work_place?: string;
+    @Column('varchar')      // no opcional por ahora
+    work_place: string;
 
-    @Column('varchar', { nullable: true })
-    assignee?: string;
+    @Column('varchar')
+    assignee: string;
     
     @Column('date')
     date: Date;

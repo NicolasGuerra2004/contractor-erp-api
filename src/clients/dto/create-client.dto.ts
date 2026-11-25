@@ -12,7 +12,7 @@ export class CreateClientDto {
     @MinLength(3)
     name: string;
 
-    @IsEmail()      // investigar si hay limite
+    @IsEmail()     
     email: string;
 
     @IsNumber()

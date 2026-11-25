@@ -8,7 +8,7 @@ export class Material {
     @PrimaryGeneratedColumn('uuid')
     id: string;
     
-    @Column('text')
+    @Column('text', { unique: true })
     receipt_number: string;
 
     @Column('text')
